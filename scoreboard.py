@@ -5,11 +5,16 @@ class Scoreboard(Turtle):
         super().__init__()
         self.score = 0
         self.hideturtle()
-        self.sety(280)
+        self.penup()
+        self.sety(250)
         self.color("white")
-        self.write("Score: {}".format(self.score), False, 'center', font=('Arial', 8, 'normal'))
+        self.write("Score: {}".format(self.score), False, 'center', font=('Arial', 24, 'normal'))
 
     def increase_score(self):
         self.score += 1
-        self.undo()
-        self.write("Score: {}".format(self.score), False, 'center', font=('Arial', 8, 'normal'))
+        self.clear()
+        self.write("Score: {}".format(self.score), False, 'center', font=('Arial', 24, 'normal'))
+
+    def game_over(self):
+        self.goto(0, 0)
+        self.write("GAME OVER", align='center', font=('Arial', 24, 'normal'))
