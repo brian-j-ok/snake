@@ -22,7 +22,10 @@ game_is_on = True
 while game_is_on:
     screen.update()
     time.sleep(0.1)
-    for seg in segments:
-        seg.forward(10)
+
+    for seg_num in range(len(segments) - 1, 0, -1):
+        segments[seg_num].goto(segments[seg_num-1].xcor(), segments[seg_num-1].ycor())
+
+    segments[0].forward(20)
 
 screen.exitonclick()
